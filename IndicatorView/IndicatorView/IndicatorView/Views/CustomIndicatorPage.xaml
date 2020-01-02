@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="IndicatorView.Views.CustomIndicatorPage"
+             Title="Custom Indicator View">
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView x:Name="CarouselView"
+                          ItemsSource="{Binding AnimalCollection}"
+                          BackgroundColor="BurlyWood">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame BorderColor="DarkGreen"
+                                   CornerRadius="10"
+                                   Margin="15,10"
+                                   BackgroundColor="DeepSkyBlue"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand">
+                                <StackLayout VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="CenterAndExpand"
+                                             Padding="15,10">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Body"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center" />
+                                    <Label Text="{Binding Details}"
+                                           FontSize="Caption"
+                                           LineBreakMode="WordWrap"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView ItemsSourceBy="CarouselView"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="DarkGreen"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,50">
+                <IndicatorView.IndicatorTemplate>
+                    <DataTemplate>
+                        <Label FontFamily="{StaticResource RanwalaFontIcons}" 
+                               Text="{StaticResource FaceIcon}"/>
+                    </DataTemplate>
+                </IndicatorView.IndicatorTemplate>
+            </IndicatorView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
